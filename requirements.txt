@@ -6,4 +6,5 @@ swagger-ui-bundle >= 0.0.2
 
 Flask~=2.2.5
 six~=1.17.0
-tinydb~=4.8.2
+pymongo~=4.11.1
+jsonschema~=4.23.0

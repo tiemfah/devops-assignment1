@@ -1,0 +1,35 @@
+volumes:
+  mongo_data:
+
+networks:
+  student_network:
+
+services:
+  student_service:
+    container_name: student_service
+    image: devops-assignment1/student_service
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017
+      MONGO_DB_USERNAME: root
+      MONGO_DB_PASSWORD: root
+    ports:
+      - "8080:8080"
+    networks:
+      - student_network
+
+  mongo:
+    container_name: mongo
+    volumes:
+      - "mongo_data:/data/db"
+    networks:
+      - student_network
+    image: mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root

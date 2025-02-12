@@ -17,7 +17,7 @@ def add_student(body=None):  # noqa: E501
     if connexion.request.is_json:
         body = Student.from_dict(connexion.request.get_json())  # noqa: E501
         return student_service.add(body)
-    return 500, 'Error'
+    return 'error', 500
 
 
 def delete_student(student_id):  # noqa: E501
