@@ -9,7 +9,6 @@ student_schema = {
     "properties": {
         "first_name": {"type": "string"},
         "last_name": {"type": "string"},
-        "student_id": {"type": "integer"},
     }
 }
 
@@ -25,7 +24,7 @@ def add(student=None):
     try:
         validate(instance=student.to_dict(), schema=student_schema)
     except ValidationError as e:
-        return f"Invalid student data: {e.message}", 400
+        return f"invalid student data: {e.message}", 400
 
     query = {
         "first_name": student.first_name,
