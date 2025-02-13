@@ -7,7 +7,7 @@ networks:
 services:
   student_service:
     container_name: student_service
-    image: devops-assignment1/student_service
+    image: sivanat/student_service
     restart: unless-stopped
     depends_on:
       - mongo
