@@ -19,7 +19,7 @@
 								"exec": [
 									"tests[\"Status code is 200\"] = responseCode.code === 200;",
 									"tests[\"Response should not be 'do some magic!'\"] = responseBody != \"do some magic!\";",
-									"// pm.globals.set(\"student_id\", responseBody);",
+									"console.log(\"Request Body:\", JSON.stringify(pm.request.body, null, 2));\n",
 									"var jsonData = JSON.parse(responseBody);",
 									"postman.setEnvironmentVariable(\"student_id\", jsonData);"
 								],
